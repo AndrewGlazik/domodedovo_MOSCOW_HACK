@@ -19,7 +19,7 @@ class FlightNumber(models.Model):
     """
     Справочник рейсов
     """
-    airline_code = models.CharField('Рейс', max_length=255)
+    flight = models.CharField('Рейс', max_length=255, blank=True, null=True)
 
     class Meta:
         verbose_name = 'Рейс'
@@ -56,7 +56,7 @@ class Service(models.Model):
     user = models.ForeignKey(User, verbose_name="Пользователь", on_delete=models.CASCADE)
     meeting_time = models.DateTimeField("Дата встречи", blank=True, null=True)
     place = models.CharField("Место встречи", max_length=255)
-    escort_features = models.CharField("Особенности сопровождения", max_length=255)
+    escort_features = models.CharField("Особенности сопровождения", max_length=255, blank=True, null=True)
 
     class Meta:
         verbose_name = 'Услуга'
